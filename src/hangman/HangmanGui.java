@@ -96,10 +96,7 @@ public class HangmanGui extends javax.swing.JFrame
         this.refreshGUI(null);
     }
     
-    /**
-     * Refreshes various GUI controls to reflect the new game state
-     * @param strMessage An optional message to be displayed in the status
-     */
+    // New game
     private void refreshGUI(String strMessage)
     {
         // Set GUI objects to represent state of the game
@@ -118,7 +115,6 @@ public class HangmanGui extends javax.swing.JFrame
      // Do NOT modify this code.
      
     @SuppressWarnings("unchecked")
-    // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
         jRadioButton1 = new javax.swing.JRadioButton();
@@ -358,10 +354,8 @@ public class HangmanGui extends javax.swing.JFrame
 
         pack();
     }
-     /* Responds to a click of the 'guess' button. If there is a game currently
-     * in progress, then the provided guessed letter is guessed and the
-     * game state is updated
-     */
+    
+    //Guess listener
     private void guessButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_guessButtonActionPerformed
         if (game == null || game.getGameStatus() != HangmanGame.GameStatus.InProgress)
             return; // the game is not in progress; no more moves to be played
@@ -398,12 +392,7 @@ public class HangmanGui extends javax.swing.JFrame
         this.newGame();
     }//GEN-LAST:event_newGameMenuItemActionPerformed
 
-    /**
-     * Listens to event when the user enters a character in the 'guess letter'
-     * field. Ensures that the max length of the text field is 1 because the
-     * user can only guess one letter at a time.
-     * @param evt the event argument
-     */
+    //ensures that only one key is typed at once
     private void guessLetterTextFieldKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_guessLetterTextFieldKeyTyped
         if (this.guessLetterTextField.getText().length() >= 1)
             evt.consume(); // block the character
@@ -441,10 +430,10 @@ public class HangmanGui extends javax.swing.JFrame
            hintDialog.setVisible(false);
         }  
     }
-    private void hintfieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_hintfieldActionPerformed
+    private void hintfieldActionPerformed(java.awt.event.ActionEvent evt) {
         // TODO add your handling code here:
     }
-    private void buyavowelButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buyavowelButtonActionPerformed
+    private void buyavowelButtonActionPerformed(java.awt.event.ActionEvent evt) {
         // Clear guessed letter
         this.guessLetterTextField.setText("");
         
