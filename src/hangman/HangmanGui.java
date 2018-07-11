@@ -156,7 +156,7 @@ public class HangmanGui extends javax.swing.JFrame
             }
         });
 
-        hintLabel1.setText("        HINT FOR YOU");
+        hintLabel1.setText("Hint: ");
 
         javax.swing.GroupLayout hintDialogLayout = new javax.swing.GroupLayout(hintDialog.getContentPane());
         hintDialog.getContentPane().setLayout(hintDialogLayout);
@@ -356,7 +356,7 @@ public class HangmanGui extends javax.swing.JFrame
     }
     
     //Guess listener
-    private void guessButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_guessButtonActionPerformed
+    private void guessButtonActionPerformed(java.awt.event.ActionEvent evt) {
         if (game == null || game.getGameStatus() != HangmanGame.GameStatus.InProgress)
             return; // the game is not in progress; no more moves to be played
         
@@ -388,28 +388,27 @@ public class HangmanGui extends javax.swing.JFrame
      // Responds to a click of the 'new game' menu item.
      //Starts a new game of hangman.
   
-    private void newGameMenuItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_newGameMenuItemActionPerformed
+    private void newGameMenuItemActionPerformed(java.awt.event.ActionEvent evt) {
         this.newGame();
     }//GEN-LAST:event_newGameMenuItemActionPerformed
 
     //ensures that only one key is typed at once
-    private void guessLetterTextFieldKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_guessLetterTextFieldKeyTyped
+    private void guessLetterTextFieldKeyTyped(java.awt.event.KeyEvent evt) {
         if (this.guessLetterTextField.getText().length() >= 1)
             evt.consume(); // block the character
     }
 
-    private void guessedWordTextFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_guessedWordTextFieldActionPerformed
+    private void guessedWordTextFieldActionPerformed(java.awt.event.ActionEvent evt) {
         // TODO add your handling code here:
     }
         // To Activate ENTER Key for GUESS Button
-    private void guessLetterTextFieldKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_guessLetterTextFieldKeyPressed
+    private void guessLetterTextFieldKeyPressed(java.awt.event.KeyEvent evt) {
        if(evt.getKeyCode() != KeyEvent.VK_ENTER)
             return; // only respond to enter key events
         
        this.guessButtonActionPerformed(null);
-    }//GEN-LAST:event_guessLetterTextFieldKeyPressed
-
-    private void hintButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_hintButtonActionPerformed
+    }
+    private void hintButtonActionPerformed(java.awt.event.ActionEvent evt) {
         this.guessLetterTextField.setText(" ");
         
         if (game.getGameStatus().equals(HangmanGame.GameStatus.InProgress) && (game.getNumberOfGuessesRemaining() > 1 || game.isHintAlreadyUsed))
@@ -440,7 +439,7 @@ public class HangmanGui extends javax.swing.JFrame
         // Get random vowel from the word
         Character vowel = this.game.getRandomUnguessedVowel();
         if (vowel == null)
-            return; // No vowels remaining/not allowed to buy vowel
+            return; // if no vowels remain disallow clicking
         
         // Set the guessed letter
         this.guessLetterTextField.setText(vowel.toString());
