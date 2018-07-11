@@ -153,11 +153,7 @@ public class HangmanGame
         return sb.toString();
     }
 
-    /**
-     * Returns the number of missed guesses remaining before the game
-     * is over.
-     * @return the number of missed guesses remaining in this game
-     */
+    //Gets number of lives player has
     public int getNumberOfGuessesRemaining()
     {
         return NUMBER_OF_INCORRECT_GUESSES - (this.missedLetters.size() + penalty);
